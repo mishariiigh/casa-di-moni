@@ -9,7 +9,7 @@ export default function About() {
         {/* LEFT TEXT SECTION */}
         <div className="space-y-6 text-center md:text-left">
 
-          <h1 className="text-5xl md:text-6xl font-bold text-accent">
+          <h1 className="text-5xl md:text-4xl font-bold text-accent">
             About Casa di Moni
           </h1>
 
@@ -30,6 +30,23 @@ export default function About() {
             </p>
           </div>
 
+          {/* HOURS BOX */}
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-md">
+            <p className="text-accent font-semibold mb-3">
+              🕒 Operating Hours
+            </p>
+
+            <div className="text-sm text-gray-300 space-y-1">
+              <p>Monday: 9:00 AM – 10:00 PM</p>
+              <p>Tuesday: 9:00 AM – 10:00 PM</p>
+              <p>Wednesday: 9:00 AM – 10:00 PM</p>
+              <p>Thursday: 9:00 AM – 10:00 PM</p>
+              <p>Friday: 9:00 AM – 11:00 PM</p>
+              <p>Saturday: 9:00 AM – 11:00 PM</p>
+              <p>Sunday: 9:00 AM – 10:00 PM</p>
+            </div>
+          </div>
+
           <div className="text-sm text-green-400 pt-2">
             ✔ Authentic Italian experience in Ottawa
           </div>
@@ -41,10 +58,8 @@ export default function About() {
 
           <div className="relative w-full max-w-md">
 
-            {/* glow effect */}
             <div className="absolute -inset-4 bg-yellow-400/10 blur-3xl rounded-2xl"></div>
 
-            {/* image card */}
             <div className="relative bg-white/5 border border-white/10 rounded-2xl overflow-hidden shadow-xl">
 
               <img
@@ -53,7 +68,6 @@ export default function About() {
                 className="w-full h-full object-cover"
               />
 
-              {/* overlay label */}
               <div className="absolute bottom-0 w-full bg-black/60 p-3 text-center">
                 <p className="text-sm text-white">
                   Casa di Moni • Ottawa Location

@@ -27,9 +27,10 @@ export default function Contact() {
           </button>
         </form>
   
-        <p className="text-center text-gray-400 mt-6">
-          info@casadimoni.ca
+        <p className="text-center text-grey-400 mt-6">
+          info@casadimoni.ca  |  (613) 789-7172
         </p>
+
       </div>
     );
   }
