@@ -1,4 +1,6 @@
-import img1 from "../assets/menu/1.png";
+import { useState } from "react";
+
+import img1 from "../assets/menu/espresso.png";
 import img2 from "../assets/menu/2.png";
 import img3 from "../assets/menu/3.png";
 import img4 from "../assets/menu/4.png";
@@ -15,65 +17,172 @@ import img14 from "../assets/menu/14.png";
 import img15 from "../assets/menu/15.png";
 import img16 from "../assets/menu/16.png";
 import img17 from "../assets/menu/17.png";
-import img18 from "../assets/menu/18.png";
-import img19 from "../assets/menu/19.png";
-import img20 from "../assets/menu/20.png";
-import img21 from "../assets/menu/21.png";
+
+const categories = ["All", "☕ Hot", "🧊 Smoothies", "🍨 Gelato", "🍰 Desserts"];
 
 const menuItems = [
-  { name: "Espresso", price: "$3", img: img1 },
-  { name: "Cappuccino", price: "$5", img: img2 },
-  { name: "Latte", price: "$5.5", img: img3 },
-  { name: "Vanilla Gelato", price: "$4", img: img4 },
-  { name: "Chocolate Gelato", price: "$4.5", img: img5 },
-  { name: "Pistachio Gelato", price: "$5", img: img6 },
+  { name: "Espresso", price: "$3", img: img1, category: "☕ Hot" },
+  { name: "Cappuccino", price: "$4.49 - $6.19", img: img2, category: "☕ Hot" },
+  { name: "Latte", price: "$4.49 - $6.19", img: img3, category: "☕ Hot" },
+  { name: "Tea Selection", price: "$3.49", img: img4, category: "☕ Hot" },
+  { name: "Cafe", price: "$2.49 - $3.79", img: img5, category: "☕ Hot" },
+  { name: "Hot Cocoa", price: "$3.99 - $5.79", img: img6, category: "☕ Hot" },
 
-  // extra items (you can rename later)
-  { name: "Macchiato", price: "$4", img: img7 },
-  { name: "Mocha", price: "$5.5", img: img8 },
-  { name: "Americano", price: "$3.5", img: img9 },
-  { name: "Affogato", price: "$6", img: img10 },
-  { name: "Cold Brew", price: "$5", img: img11 },
-  { name: "Iced Latte", price: "$5.5", img: img12 },
-  { name: "Hazelnut Gelato", price: "$5", img: img13 },
-  { name: "Stracciatella", price: "$5", img: img14 },
-  { name: "Lemon Sorbet", price: "$4.5", img: img15 },
-  { name: "Tiramisu", price: "$6", img: img16 },
-  { name: "Croissant", price: "$3.5", img: img17 },
-  { name: "Chocolate Cake", price: "$6", img: img18 },
-  { name: "Cheesecake", price: "$6", img: img19 },
-  { name: "Espresso Shot", price: "$2.5", img: img20 },
-  { name: "Gelato Mix", price: "$7", img: img21 },
+  { name: "Banana Smoothie", price: "$7.79", img: img17, category: "🧊 Smoothies" },
+  { name: "Mango Smoothie", price: "$7.79", img: img17, category: "🧊 Smoothies" },
+  { name: "Strawberry Smoothie", price: "$7.79", img: img17, category: "🧊 Smoothies" },
+
+  { name: "Oreo Gelato", price: "$7.79", img: img12, category: "🍨 Gelato" },
+  { name: "Pistachio Gelato", price: "$7.79", img: img13, category: "🍨 Gelato" },
+  { name: "Lemon Sorbet", price: "$7.79", img: img15, category: "🍨 Gelato" },
+
+  { name: "Tiramisu", price: "$7.79", img: img16, category: "🍰 Desserts" },
+  { name: "Chocolate Cake", price: "$7.79", img: img17, category: "🍰 Desserts" },
 ];
 
 export default function Menu() {
-  return (
-    <div className="px-10 py-20">
-      <h1 className="text-5xl font-display text-accent mb-12 text-center">
-        Our Menu
-      </h1>
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [activeFilter, setActiveFilter] = useState("All");
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {menuItems.map((item, index) => (
-          <div
-            key={index}
-            className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 hover:scale-105 transition"
-          >
+  const categoryOrder = ["☕ Hot", "🧊 Smoothies", "🍨 Gelato", "🍰 Desserts"];
 
-            {/* IMAGE */}
-            <div className="h-44 mb-4 rounded-xl overflow-hidden bg-black/20 flex items-center justify-center">
-              <img
-                src={item.img}
-                className="max-h-full max-w-full object-contain"
-                alt={item.name}
-              />
+  const filteredItems =
+    activeFilter === "All"
+      ? menuItems
+      : menuItems.filter((item) => item.category === activeFilter);
+
+  const renderCategory = (cat) => {
+    const items = filteredItems.filter((item) => item.category === cat);
+    if (!items.length) return null;
+
+    return (
+      <section key={cat} className="mb-14">
+
+        {/* CATEGORY HEADER */}
+        <div className="mb-6 flex items-center gap-3">
+          <div className="h-[1px] flex-1 bg-white/10"></div>
+          <h2 className="text-xl md:text-2xl text-accent tracking-wide">
+            {cat}
+          </h2>
+          <div className="h-[1px] flex-1 bg-white/10"></div>
+        </div>
+
+        {/* GRID */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {items.map((item, i) => (
+            <div
+              key={i}
+              onClick={() => setSelectedItem(item)}
+              className="
+                group cursor-pointer
+                bg-white/5 backdrop-blur-xl
+                border border-white/10
+                rounded-2xl overflow-hidden
+                hover:scale-[1.03] hover:border-white/20
+                transition duration-300
+                shadow-lg shadow-black/30
+              "
+            >
+              {/* IMAGE */}
+              <div className="h-64 overflow-hidden relative">
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                />
+
+                {/* soft luxury overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              </div>
+
+              {/* INFO */}
+              <div className="p-5">
+                <h3 className="text-lg text-white">{item.name}</h3>
+                <p className="text-gray-400 text-sm mt-1">{item.price}</p>
+              </div>
             </div>
+          ))}
+        </div>
+      </section>
+    );
+  };
 
-            <h3 className="text-xl text-accent">{item.name}</h3>
-            <p className="text-gray-400 mt-2">{item.price}</p>
-          </div>
-        ))}
+  const visibleCategories =
+    activeFilter === "All" ? categoryOrder : [activeFilter];
+
+  return (
+    <div className="min-h-screen bg-black text-white px-6 md:px-12 py-20">
+
+      {/* HEADER */}
+      <div className="text-center mb-12">
+        <h1 className="text-5xl md:text-6xl font-light tracking-wide text-accent">
+          Our Menu
+        </h1>
+        <p className="text-gray-400 mt-3">
+          A curated selection of handcrafted flavors
+        </p>
       </div>
+
+      {/* LUXURY FILTER BAR (sticky feel) */}
+      <div className="flex justify-center mb-16">
+        <div className="flex gap-2 p-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`
+                px-5 py-2 rounded-full text-sm transition
+                ${
+                  activeFilter === cat
+                    ? "bg-white text-black shadow-md"
+                    : "text-gray-300 hover:text-white"
+                }
+              `}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* CATEGORIES */}
+      <div className="space-y-10">
+        {visibleCategories.map((cat) => renderCategory(cat))}
+      </div>
+
+      {/* MODAL */}
+      {selectedItem && (
+        <div
+          onClick={() => setSelectedItem(null)}
+          className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="
+              bg-zinc-900/90 backdrop-blur-xl
+              border border-white/10
+              rounded-2xl p-6
+              max-w-md w-full
+              shadow-2xl
+            "
+          >
+            <img
+              src={selectedItem.img}
+              alt={selectedItem.name}
+              className="rounded-xl mb-5"
+            />
+
+            <h2 className="text-2xl text-white mb-2">
+              {selectedItem.name}
+            </h2>
+
+            <p className="text-accent text-lg">
+              {selectedItem.price}
+            </p>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }

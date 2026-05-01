@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import logo from "../../assets/logo2.png";
 
-// LOCAL IMAGES ONLY (from your menu folder)
 import img1 from "../../assets/menu/1.png";
 import img2 from "../../assets/menu/2.png";
 import img3 from "../../assets/menu/3.png";
@@ -29,9 +28,9 @@ const bestSellers = [
 
 export default function HeroBlock() {
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center text-center overflow-hidden bg-black">
 
-      {/* BACKGROUND */}
+      {/* BACKGROUND IMAGE */}
       <div
         className="absolute inset-0 bg-cover bg-center scale-110"
         style={{
@@ -40,11 +39,11 @@ export default function HeroBlock() {
         }}
       />
 
-      {/* LIGHT GLOWS */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute w-[600px] h-[600px] bg-amber-300/20 blur-[140px] rounded-full top-[-200px] left-[-200px] animate-pulse" />
-        <div className="absolute w-[500px] h-[500px] bg-yellow-400/10 blur-[160px] rounded-full top-[20%] right-[-200px] animate-pulse" />
-        <div className="absolute w-[400px] h-[400px] bg-orange-300/10 blur-[180px] rounded-full bottom-[-150px] left-[30%] animate-pulse" />
+      {/* SOFT LUXURY GLOWS */}
+      <div className="absolute inset-0">
+        <div className="absolute w-[600px] h-[600px] bg-amber-300/10 blur-[160px] rounded-full top-[-200px] left-[-200px]" />
+        <div className="absolute w-[500px] h-[500px] bg-yellow-400/10 blur-[180px] rounded-full top-[20%] right-[-200px]" />
+        <div className="absolute w-[450px] h-[450px] bg-orange-300/10 blur-[200px] rounded-full bottom-[-200px] left-[30%]" />
       </div>
 
       {/* DARK OVERLAY */}
@@ -53,56 +52,84 @@ export default function HeroBlock() {
       {/* CONTENT */}
       <div className="relative z-10 flex flex-col items-center text-white px-6">
 
+        {/* LOGO */}
         <motion.img
           src={logo}
-          className="w-44 h-30 mb-8 object-contain"
+          className="w-40 md:w-52 mb-6 object-contain drop-shadow-xl"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
         />
 
+        {/* TITLE */}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-6xl md:text-7xl font-display text-accent"
+          transition={{ duration: 0.6 }}
+          className="text-5xl md:text-7xl font-light tracking-wide text-white"
         >
           Casa di Moni
         </motion.h1>
 
-        <p className="mt-4 text-gray-300 max-w-md">
+        {/* SUBTITLE */}
+        <p className="mt-4 text-gray-300 max-w-md text-sm md:text-base tracking-wide">
           Luxury Gelato & Coffee Experience
         </p>
 
+        {/* CTA */}
         <Link to="/menu">
-          <button className="mt-8 px-10 py-3 bg-accent text-black rounded-full hover:scale-105 transition">
+          <button className="
+            mt-8 px-10 py-3
+            bg-white text-black
+            rounded-full
+            hover:scale-105
+            transition
+            shadow-lg
+          ">
             Explore Menu
           </button>
         </Link>
 
-        {/* ⭐ BEST SELLERS MARQUEE */}
-        <div className="mt-14 w-full max-w-5xl overflow-hidden">
+        {/* BEST SELLERS */}
+        <div className="mt-16 w-full max-w-6xl overflow-hidden">
 
-          <h3 className="text-sm uppercase tracking-[0.3em] text-gray-300 mb-4">
+          <h3 className="text-xs tracking-[0.4em] text-gray-300 mb-6 uppercase">
             Best Sellers
           </h3>
 
-          <div className="flex w-max gap-6 animate-scroll">
+          {/* MARQUEE */}
+          <div className="flex w-max gap-5 animate-scroll">
 
             {[...bestSellers, ...bestSellers].map((item, index) => (
               <div
                 key={index}
-                className="min-w-[200px] h-[220px] bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden flex flex-col items-center justify-between p-3"
+                className="
+                  min-w-[180px] md:min-w-[200px]
+                  h-[230px]
+                  bg-white/5
+                  backdrop-blur-xl
+                  border border-white/10
+                  rounded-2xl
+                  overflow-hidden
+                  flex flex-col
+                  items-center
+                  justify-between
+                  p-4
+                  hover:scale-105
+                  transition
+                "
               >
                 {/* IMAGE */}
                 <div className="w-full h-[170px] flex items-center justify-center">
                   <img
                     src={item.img}
-                    className="max-w-full max-h-full object-contain"
+                    className="max-h-full max-w-full object-contain"
                     alt={item.name}
                   />
                 </div>
 
-                <p className="text-sm text-white text-center">
+                {/* NAME */}
+                <p className="text-xs md:text-sm text-white/90 text-center">
                   {item.name}
                 </p>
               </div>
@@ -116,16 +143,12 @@ export default function HeroBlock() {
       {/* ANIMATION */}
       <style>{`
         @keyframes scroll {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(-50%);
-          }
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
         }
 
         .animate-scroll {
-          animation: scroll 18s linear infinite;
+          animation: scroll 20s linear infinite;
         }
       `}</style>
 
