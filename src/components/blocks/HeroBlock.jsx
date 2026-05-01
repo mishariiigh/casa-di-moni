@@ -30,125 +30,109 @@ export default function HeroBlock() {
   return (
     <section className="relative h-screen flex items-center justify-center text-center overflow-hidden bg-black">
 
-      {/* BACKGROUND IMAGE */}
+      {/* BACKGROUND IMAGE - Fixed and optimized */}
       <div
-        className="absolute inset-0 bg-cover bg-center scale-110"
+        className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1509042239860-f550ce710b93')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1509042239860-f550ce710b93')",
         }}
       />
 
-      {/* SOFT LUXURY GLOWS */}
-      <div className="absolute inset-0">
-        <div className="absolute w-[600px] h-[600px] bg-amber-300/10 blur-[160px] rounded-full top-[-200px] left-[-200px]" />
-        <div className="absolute w-[500px] h-[500px] bg-yellow-400/10 blur-[180px] rounded-full top-[20%] right-[-200px]" />
-        <div className="absolute w-[450px] h-[450px] bg-orange-300/10 blur-[200px] rounded-full bottom-[-200px] left-[30%]" />
-      </div>
+      {/* REPLACED BLUR DIVS WITH RADIAL GRADIENT - Much faster performance */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,_rgba(251,191,36,0.15)_0%,_transparent_50%),_radial-gradient(circle_at_80%_80%,_rgba(251,191,36,0.1)_0%,_transparent_50%)]" />
 
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/60" />
+      {/* DARK OVERLAY - Static opacity is faster than blurs */}
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* CONTENT */}
-      <div className="relative z-10 flex flex-col items-center text-white px-6">
+      <div className="relative z-10 flex flex-col items-center text-white px-6 w-full">
 
         {/* LOGO */}
         <motion.img
           src={logo}
-          className="w-40 md:w-52 mb-6 object-contain drop-shadow-xl"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
+          className="w-32 md:w-44 mb-4 object-contain"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         />
 
         {/* TITLE */}
         <motion.h1
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl md:text-7xl font-light tracking-wide text-white"
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-5xl md:text-8xl font-serif italic tracking-tight text-white"
         >
           Casa di Moni
         </motion.h1>
 
         {/* SUBTITLE */}
-        <p className="mt-4 text-gray-300 max-w-md text-sm md:text-base tracking-wide">
-          Luxury Gelato & Coffee Experience
+        <p className="mt-2 text-gray-300 text-[10px] md:text-xs uppercase tracking-[0.5em] font-light">
+          Luxury Gelato & Coffee
         </p>
 
         {/* CTA */}
-        <Link to="/menu">
-          <button className="
-            mt-8 px-10 py-3
-            bg-white text-black
-            rounded-full
-            hover:scale-105
-            transition
-            shadow-lg
-          ">
+        <Link to="/menu" className="mt-8">
+          <button className="px-10 py-3 bg-white text-black text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-amber-500 hover:text-white transition-colors duration-300">
             Explore Menu
           </button>
         </Link>
 
-        {/* BEST SELLERS */}
-        <div className="mt-16 w-full max-w-6xl overflow-hidden">
-
-          <h3 className="text-xs tracking-[0.4em] text-gray-300 mb-6 uppercase">
-            Best Sellers
+        {/* BEST SELLERS MARQUEE - Optimized for speed */}
+        <div className="mt-16 w-full overflow-hidden border-t border-white/10 pt-10">
+          <h3 className="text-[9px] tracking-[0.4em] text-gray-400 mb-6 uppercase">
+            Signature Selection
           </h3>
 
-          {/* MARQUEE */}
-          <div className="flex w-max gap-5 animate-scroll">
-
+          <div className="flex w-max gap-4 animate-scroll-fast will-change-transform">
             {[...bestSellers, ...bestSellers].map((item, index) => (
               <div
                 key={index}
                 className="
-                  min-w-[180px] md:min-w-[200px]
-                  h-[230px]
-                  bg-white/5
-                  backdrop-blur-xl
-                  border border-white/10
-                  rounded-2xl
-                  overflow-hidden
+                  w-[140px] md:w-[180px]
+                  h-[200px] md:h-[240px]
+                  bg-[#111]/80
+                  border border-white/5
                   flex flex-col
                   items-center
                   justify-between
                   p-4
-                  hover:scale-105
-                  transition
                 "
               >
-                {/* IMAGE */}
-                <div className="w-full h-[170px] flex items-center justify-center">
+                <div className="w-full h-32 flex items-center justify-center">
                   <img
                     src={item.img}
                     className="max-h-full max-w-full object-contain"
                     alt={item.name}
+                    loading="lazy"
                   />
                 </div>
-
-                {/* NAME */}
-                <p className="text-xs md:text-sm text-white/90 text-center">
+                <p className="text-[10px] uppercase tracking-widest text-white/80">
                   {item.name}
                 </p>
               </div>
             ))}
-
           </div>
         </div>
 
       </div>
 
-      {/* ANIMATION */}
+      {/* OPTIMIZED GPU ANIMATION */}
       <style>{`
-        @keyframes scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
+        @keyframes scroll-fast {
+          from { transform: translate3d(0, 0, 0); }
+          to { transform: translate3d(-50%, 0, 0); }
         }
 
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
+        .animate-scroll-fast {
+          animation: scroll-fast 30s linear infinite;
+        }
+
+        /* Stops processing when not visible */
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll-fast {
+            animation: none;
+          }
         }
       `}</style>
 

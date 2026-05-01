@@ -15,52 +15,58 @@ export default function FeatureBlock() {
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-16 bg-black text-white overflow-hidden">
-      {/* Subtle ambient glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute w-[500px] h-[500px] bg-amber-300/5 blur-[180px] rounded-full top-[-200px] left-[-200px]" />
-        <div className="absolute w-[400px] h-[400px] bg-white/5 blur-[200px] rounded-full bottom-[-150px] right-[-150px]" />
-      </div>
+    <section className="relative py-32 px-6 bg-[#05050] text-white overflow-hidden">
+      
+      {/* 1. PERFORMANCE LIGHTING: Single radial gradient instead of multiple blur divs */}
+      <div className="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_50%,_rgba(251,191,36,0.08)_0%,_transparent_70%)]" />
 
-      <div className="relative text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-light tracking-wide text-white">
+      <div className="relative z-10 text-center mb-20">
+        <span className="text-[10px] uppercase tracking-[0.6em] text-amber-500/80 mb-4 block">
+          The Philosophy
+        </span>
+        <h2 className="text-4xl md:text-6xl font-serif italic tracking-tight">
           Crafted with Purpose
         </h2>
-        <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-          Every detail is designed to deliver a refined café experience
+        <div className="w-12 h-[1px] bg-white/20 mx-auto mt-8 mb-6" />
+        <p className="text-gray-400 text-sm md:text-base font-light tracking-wide max-w-xl mx-auto italic">
+          Every detail is designed to deliver a refined café experience.
         </p>
       </div>
 
-      <div className="relative grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {/* 2. ARCHITECTURAL CARDS: No backdrop-blur, uses solid hardware-accelerated layers */}
+      <div className="relative grid grid-cols-1 md:grid-cols-3 gap-0 max-w-6xl mx-auto border border-white/5 bg-white/[0.02]">
         {items.map((item, i) => (
           <div
             key={i}
-            className="
+            className={`
               group relative
-              bg-white/5
-              backdrop-blur-md  /* 1. Reduced from 2xl for performance */
-              border border-white/10
-              rounded-3xl
-              p-8
-              overflow-hidden
-              transition-transform duration-300 ease-out
-              hover:scale-[1.03]
-              will-change-transform /* 2. Promotes to GPU layer */
-              shadow-lg shadow-black/30
-            "
+              p-10 md:p-14
+              transition-all duration-500
+              ${i !== items.length - 1 ? 'border-b md:border-b-0 md:border-r border-white/5' : ''}
+              hover:bg-white/[0.03]
+              cursor-default
+            `}
           >
-            {/* Soft glow accent - Optimized opacity transition */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-amber-300/10 blur-3xl rounded-full" />
-            </div>
+            {/* Subtle interactive accent */}
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
 
             <div className="relative z-10">
-              <h3 className="text-xl text-amber-200 mb-3 tracking-wide">
+              <span className="text-[9px] text-amber-500/50 mb-6 block tracking-[0.3em] font-bold uppercase">
+                0{i + 1}
+              </span>
+              <h3 className="text-xl md:text-2xl font-serif italic mb-4 group-hover:text-amber-200 transition-colors">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-300 leading-relaxed">
+              <p className="text-[13px] text-gray-400 leading-relaxed font-light tracking-wide">
                 {item.desc}
               </p>
+            </div>
+            
+            {/* Minimalist arrow detail */}
+            <div className="mt-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 text-amber-500/50">
+               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                 <path d="M5 12h14m-7-7l7 7-7 7"/>
+               </svg>
             </div>
           </div>
         ))}
