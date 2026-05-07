@@ -17,23 +17,18 @@ import img9 from "../../assets/menu/cake9.png";
 import img10 from "../../assets/menu/cake10.png";
 
 const bestSellers = [
-  { name: "Espresso", img: img1 },
-  { name: "Cappuccino", img: img2 },
-  { name: "Latte", img: img3 },
-  { name: "Vanilla Gelato", img: img4 },
-  { name: "Chocolate Gelato", img: img5 },
-  { name: "Pistachio Gelato", img: img6 },
-  { name: "Macchiato", img: img7 },
-  { name: "Mocha", img: img8 },
-  { name: "Americano", img: img9 },
-  { name: "Affogato", img: img10 },
+  { name: "Espresso", img: img1, price: "€4" },
+  { name: "Cappuccino", img: img2, price: "€5" },
+  { name: "Latte", img: img3, price: "€6" },
+  { name: "Vanilla Gelato", img: img4, price: "€7" },
+  { name: "Chocolate Gelato", img: img5, price: "€7" },
 ];
 
 export default function HeroBlock() {
   return (
-    <section className="relative h-screen flex items-center justify-center text-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-black py-20">
       
-      {/* BACKGROUND */}
+      {/* BACKGROUND & OVERLAYS */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -41,94 +36,91 @@ export default function HeroBlock() {
             "url('https://images.unsplash.com/photo-1509042239860-f550ce710b93')",
         }}
       />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_black_90%)] opacity-80" />
+      <div className="absolute inset-0 bg-black/40" />
 
-      {/* GRADIENT OVERLAY */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,_rgba(251,191,36,0.15)_0%,_transparent_50%),_radial-gradient(circle_at_80%_80%,_rgba(251,191,36,0.1)_0%,_transparent_50%)]" />
-
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/50" />
-
-      {/* CONTENT */}
-      <div className="relative z-10 flex flex-col items-center text-white px-6 w-full">
+      {/* MAIN CONTENT */}
+      <div className="relative z-10 flex flex-col items-center text-white px-6 w-full max-w-7xl">
         
-        {/* LOGO */}
         <motion.img
           src={logo}
           alt="Casa di Moni Logo"
-          className="w-32 md:w-44 mb-4 object-contain"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          className="w-24 md:w-32 mb-6 object-contain opacity-80"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 0.8, y: 0 }}
         />
 
-        {/* TITLE */}
         <motion.h1
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-5xl md:text-8xl font-serif italic tracking-tight text-white"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="text-6xl md:text-9xl font-serif italic tracking-tighter text-white"
         >
           Casa di Moni
         </motion.h1>
 
-        {/* SUBTITLE */}
-        <p className="mt-2 text-gray-300 text-[10px] md:text-xs uppercase tracking-[0.5em] font-light">
-          Luxury Gelato & Coffee
+        <p className="mt-4 text-amber-500/80 text-[10px] md:text-xs uppercase tracking-[0.8em] font-light">
+          Artisanal Excellence
         </p>
 
-        {/* CTA */}
-        <Link to="/menu" className="mt-8">
-          <button className="px-10 py-3 bg-white text-black text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-amber-500 hover:text-white transition-colors duration-300">
-            Explore Menu
-          </button>
-        </Link>
+        {/* REINVENTED BEST SELLERS GRID */}
+        <div className="mt-20 w-full">
+          <div className="flex flex-col items-center mb-12">
+            <span className="h-px w-12 bg-amber-500/50 mb-4"></span>
+            <h3 className="text-[10px] tracking-[0.5em] text-gray-300 uppercase font-medium">
+              The Signature Collection
+            </h3>
+          </div>
 
-        {/* BEST SELLERS */}
-        <div className="mt-16 w-full overflow-hidden border-t border-white/10 pt-10">
-          <h3 className="text-[9px] tracking-[0.4em] text-gray-400 mb-6 uppercase">
-            Signature Selection
-          </h3>
-
-          <div className="flex w-max gap-4 animate-scroll-fast will-change-transform">
-            {[...bestSellers, ...bestSellers].map((item, index) => (
-              <div
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+            {bestSellers.map((item, index) => (
+              <motion.div
                 key={index}
-                className="w-[140px] md:w-[180px] h-[200px] md:h-[240px] bg-[#111]/80 border border-white/5 flex flex-col items-center justify-between p-4"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -10 }}
+                className="group relative aspect-[3/4] bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm flex flex-col items-center justify-end p-6"
               >
-                <div className="w-full h-32 flex items-center justify-center">
+                {/* Product Image with Float Animation */}
+                <motion.div 
+                  className="absolute inset-0 flex items-center justify-center p-8 mb-12"
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                >
                   <img
                     src={item.img}
                     alt={item.name}
-                    className="max-h-full max-w-full object-contain"
-                    loading="lazy"
+                    className="max-h-full w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-500"
                   />
+                </motion.div>
+
+                {/* Subtle Info Overlay */}
+                <div className="relative z-10 w-full pt-4">
+                  <p className="text-[10px] uppercase tracking-widest text-white font-semibold">
+                    {item.name}
+                  </p>
+                  <p className="text-[9px] text-amber-500/70 mt-1 tracking-widest">{item.price}</p>
                 </div>
-                <p className="text-[10px] uppercase tracking-widest text-white/80">
-                  {item.name}
-                </p>
-              </div>
+
+                {/* Hover Glow */}
+                <div className="absolute inset-0 bg-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
             ))}
           </div>
         </div>
+
+        <Link to="/menu" className="mt-16">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-12 py-4 bg-transparent border border-white/20 text-white text-[11px] uppercase tracking-[0.4em] hover:bg-white hover:text-black transition-all duration-500"
+          >
+            Discover Full Menu
+          </motion.button>
+        </Link>
       </div>
-
-      {/* ANIMATION */}
-      <style>{`
-        @keyframes scroll-fast {
-          from { transform: translate3d(0, 0, 0); }
-          to { transform: translate3d(-50%, 0, 0); }
-        }
-
-        .animate-scroll-fast {
-          animation: scroll-fast 30s linear infinite;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .animate-scroll-fast {
-            animation: none;
-          }
-        }
-      `}</style>
     </section>
   );
 }
