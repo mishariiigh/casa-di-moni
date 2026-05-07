@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../assets/logo2.png";
+import logo from "../assets/logo.png";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
