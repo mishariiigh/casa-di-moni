@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
+// FIXED PATH (go up 2 levels)
 import logo from "../../assets/logo2.png";
 
-import img1 from "../../assets/menu/1.png";
-import img2 from "../../assets/menu/2.png";
-import img3 from "../../assets/menu/3.png";
-import img4 from "../../assets/menu/4.png";
-import img5 from "../../assets/menu/5.png";
-import img6 from "../../assets/menu/6.png";
-import img7 from "../../assets/menu/7.png";
-import img8 from "../../assets/menu/8.png";
-import img9 from "../../assets/menu/9.png";
-import img10 from "../../assets/menu/10.png";
+// FIXED ALL IMAGE PATHS
+import img1 from "../../assets/menu/cake1.png";
+import img2 from "../../assets/menu/cake2.png";
+import img3 from "../../assets/menu/cake3.png";
+import img4 from "../../assets/menu/cake4.png";
+import img5 from "../../assets/menu/cake5.png";
+import img6 from "../../assets/menu/cake6.png";
+import img7 from "../../assets/menu/cake7.png";
+import img8 from "../../assets/menu/cake8.png";
+import img9 from "../../assets/menu/cake9.png";
+import img10 from "../../assets/menu/cake10.png";
 
 const bestSellers = [
   { name: "Espresso", img: img1 },
@@ -29,27 +32,29 @@ const bestSellers = [
 export default function HeroBlock() {
   return (
     <section className="relative h-screen flex items-center justify-center text-center overflow-hidden bg-black">
-
-      {/* BACKGROUND IMAGE - Fixed and optimized */}
+      
+      {/* BACKGROUND */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1509042239860-f550ce710b93')",
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1509042239860-f550ce710b93')",
         }}
       />
 
-      {/* REPLACED BLUR DIVS WITH RADIAL GRADIENT - Much faster performance */}
+      {/* GRADIENT OVERLAY */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,_rgba(251,191,36,0.15)_0%,_transparent_50%),_radial-gradient(circle_at_80%_80%,_rgba(251,191,36,0.1)_0%,_transparent_50%)]" />
 
-      {/* DARK OVERLAY - Static opacity is faster than blurs */}
+      {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/50" />
 
       {/* CONTENT */}
       <div className="relative z-10 flex flex-col items-center text-white px-6 w-full">
-
+        
         {/* LOGO */}
         <motion.img
           src={logo}
+          alt="Casa di Moni Logo"
           className="w-32 md:w-44 mb-4 object-contain"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -78,7 +83,7 @@ export default function HeroBlock() {
           </button>
         </Link>
 
-        {/* BEST SELLERS MARQUEE - Optimized for speed */}
+        {/* BEST SELLERS */}
         <div className="mt-16 w-full overflow-hidden border-t border-white/10 pt-10">
           <h3 className="text-[9px] tracking-[0.4em] text-gray-400 mb-6 uppercase">
             Signature Selection
@@ -88,22 +93,13 @@ export default function HeroBlock() {
             {[...bestSellers, ...bestSellers].map((item, index) => (
               <div
                 key={index}
-                className="
-                  w-[140px] md:w-[180px]
-                  h-[200px] md:h-[240px]
-                  bg-[#111]/80
-                  border border-white/5
-                  flex flex-col
-                  items-center
-                  justify-between
-                  p-4
-                "
+                className="w-[140px] md:w-[180px] h-[200px] md:h-[240px] bg-[#111]/80 border border-white/5 flex flex-col items-center justify-between p-4"
               >
                 <div className="w-full h-32 flex items-center justify-center">
                   <img
                     src={item.img}
-                    className="max-h-full max-w-full object-contain"
                     alt={item.name}
+                    className="max-h-full max-w-full object-contain"
                     loading="lazy"
                   />
                 </div>
@@ -114,10 +110,9 @@ export default function HeroBlock() {
             ))}
           </div>
         </div>
-
       </div>
 
-      {/* OPTIMIZED GPU ANIMATION */}
+      {/* ANIMATION */}
       <style>{`
         @keyframes scroll-fast {
           from { transform: translate3d(0, 0, 0); }
@@ -128,14 +123,12 @@ export default function HeroBlock() {
           animation: scroll-fast 30s linear infinite;
         }
 
-        /* Stops processing when not visible */
         @media (prefers-reduced-motion: reduce) {
           .animate-scroll-fast {
             animation: none;
           }
         }
       `}</style>
-
     </section>
   );
 }

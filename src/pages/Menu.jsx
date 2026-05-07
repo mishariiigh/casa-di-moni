@@ -1,42 +1,155 @@
 import { useState } from "react";
 
-// Asset Imports
-import img1 from "../assets/menu/espresso.png";
-import img2 from "../assets/menu/2.png";
-import img3 from "../assets/menu/3.png";
-import img4 from "../assets/menu/4.png";
-import img5 from "../assets/menu/5.png";
-import img6 from "../assets/menu/6.png";
-import img7 from "../assets/menu/7.png";
-import img8 from "../assets/menu/8.png";
-import img9 from "../assets/menu/9.png";
-import img10 from "../assets/menu/10.png";
-import img11 from "../assets/menu/11.png";
-import img12 from "../assets/menu/12.png";
-import img13 from "../assets/menu/13.png";
-import img14 from "../assets/menu/14.png";
-import img15 from "../assets/menu/15.png";
-import img16 from "../assets/menu/16.png";
-import img17 from "../assets/menu/17.png";
+// Asset Imports cakes
+import cake1 from "../assets/menu/cake1.png";
+import cake2 from "../assets/menu/cake2.png";
+import cake3 from "../assets/menu/cake3.png";
+import cake4 from "../assets/menu/cake4.png";
+import cake5 from "../assets/menu/cake5.png";
+import cake6 from "../assets/menu/cake6.png";
+import cake7 from "../assets/menu/cake7.png";
+import cake8 from "../assets/menu/cake8.png";
+import cake9 from "../assets/menu/cake9.png";
+import cake10 from "../assets/menu/cake10.png";
+import cake11 from "../assets/menu/cake11.png";
+import cake12 from "../assets/menu/cake12.png";
+import cake13 from "../assets/menu/cake13.png";
+import cake14 from "../assets/menu/cake14.png";
+import cake15 from "../assets/menu/cake15.png";
+import cake16 from "../assets/menu/cake16.png";
+import cake17 from "../assets/menu/cake17.png";
+import cake18 from "../assets/menu/cake18.png";
+import cake19 from "../assets/menu/cake19.png";
+import cake20 from "../assets/menu/cake20.png";
+import cake21 from "../assets/menu/cake21.png";
+import cake22 from "../assets/menu/cake22.png";
+import cake23 from "../assets/menu/cake23.png";
+import cake24 from "../assets/menu/cake23.png";
+import cake25 from "../assets/menu/cake24.png";
+import cake26 from "../assets/menu/cake25.png";
+import cake27 from "../assets/menu/cake27.png";
+import cake28 from "../assets/menu/cake28.png";
+import cake29 from "../assets/menu/cake29.png";
+import cake30 from "../assets/menu/cake30.png";
+import cake31 from "../assets/menu/cake31.png";
+import cake32 from "../assets/menu/cake32.png";
+import cake33 from "../assets/menu/cake33.png";
+import cake34 from "../assets/menu/cake34.png";
+import cake35 from "../assets/menu/cake35.png";
+import cake36 from "../assets/menu/cake36.png";
+import cake37 from "../assets/menu/cake37.png";
+import cake38 from "../assets/menu/cake38.png";
+import cake39 from "../assets/menu/cake39.png";
+import cake40 from "../assets/menu/cake40.png";
+import cake41 from "../assets/menu/cake41.png";
+//import cold drinks
+import cold1 from "../assets/menu/cold1.png"; 
+import cold2 from "../assets/menu/cold2.png"; 
+import cold3 from "../assets/menu/cold3.png"; 
+import cold4 from "../assets/menu/cold4.png"; 
+import cold5 from "../assets/menu/cold5.png"; 
+import cold6 from "../assets/menu/cold6.png"; 
+import cold7 from "../assets/menu/cold7.png"; 
+import cold8 from "../assets/menu/cold8.png"; 
+// import hot drinks
+import hot1 from "../assets/menu/hot1.png"; 
+import hot2 from "../assets/menu/hot2.png"; 
+import hot3 from "../assets/menu/hot3.png"; 
+import hot4 from "../assets/menu/hot4.png"; 
+import hot5 from "../assets/menu/hot5.png"; 
+import hot6 from "../assets/menu/hot6.png"; 
+import hot7 from "../assets/menu/hot7.png"; 
+import hot8 from "../assets/menu/hot8.png"; 
+import hot9 from "../assets/menu/hot9.png"; 
+import hot10 from "../assets/menu/hot10.png"; 
+import hot11 from "../assets/menu/hot11.png"; 
+import hot12 from "../assets/menu/hot12.png"; 
+import hot13 from "../assets/menu/hot13.png"; 
+import hot14 from "../assets/menu/hot14.png"; 
+import hot15 from "../assets/menu/hot15.png"; 
+
 
 const menuItems = [
-  { name: "Espresso", price: "$3.00", img: img1, category: "Hot Coffee" },
-  { name: "Cappuccino", price: "$4.49 — $6.19", img: img2, category: "Hot Coffee" },
-  { name: "Latte", price: "$4.49 — $6.19", img: img3, category: "Hot Coffee" },
-  { name: "Tea Selection", price: "$3.49", img: img4, category: "Hot Coffee" },
-  { name: "Caffè", price: "$2.49 — $3.79", img: img5, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: img6, category: "Hot Coffee" },
-  { name: "Banana Smoothie", price: "$7.79", img: img17, category: "Smoothies" },
-  { name: "Mango Smoothie", price: "$7.79", img: img17, category: "Smoothies" },
-  { name: "Strawberry Smoothie", price: "$7.79", img: img17, category: "Smoothies" },
-  { name: "Oreo Gelato", price: "$7.79", img: img12, category: "Gelato" },
-  { name: "Pistachio Gelato", price: "$7.79", img: img13, category: "Gelato" },
-  { name: "Lemon Sorbet", price: "$7.79", img: img15, category: "Gelato" },
-  { name: "Tiramisu", price: "$7.79", img: img16, category: "Desserts" },
-  { name: "Chocolate Cake", price: "$7.79", img: img17, category: "Desserts" },
+  { name: "Cappuccino", price: "$4.49 — $6.19", img: hot1, category: "Hot Coffee" },
+  { name: "Latte", price: "$4.49 — $6.19", img: hot3, category: "Hot Coffee" },
+  { name: "Tea Selection", price: "$3.49", img: hot4, category: "Hot Coffee" },
+  { name: "Caffè", price: "$2.49 — $3.79", img: hot5, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot6, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot7, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot8, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot9, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot10, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot11, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot12, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot13, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot14, category: "Hot Coffee" },
+  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot15, category: "Hot Coffee" },
+
+  ,
+
+  //Cold Drinks
+  { name: "Banana Smoothie", price: "$7.79", img: cold1, category: "Cold Drinks" },
+  { name: "Mango Smoothie", price: "$7.79", img: cold2, category: "Cold Drinks" },
+  { name: "Mango Smoothie", price: "$7.79", img: cold3, category: "Cold Drinks" },
+  { name: "Mango Smoothie", price: "$7.79", img: cold4, category: "Cold Drinks" },
+  { name: "Mango Smoothie", price: "$7.79", img: cold5, category: "Cold Drinks" },
+  { name: "Mango Smoothie", price: "$7.79", img: cold6, category: "Cold Drinks" },
+  { name: "Mango Smoothie", price: "$7.79", img: cold7, category: "Cold Drinks" },
+  { name: "Strawberry Smoothie", price: "$7.79", img: cold8, category: "Cold Drinks" },
+
+  //Gelato
+  { name: "Oreo Gelato", price: "$7.79", img: hot1, category: "Gelato" },
+  { name: "Pistachio Gelato", price: "$7.79", img: hot1, category: "Gelato" },
+  { name: "Lemon Sorbet", price: "$7.79", img: hot2, category: "Gelato" },
+
+  //cake
+  { name: "Tiramisu", price: "$7.79", img: cake1, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake2, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake3, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake4, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake5, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake6, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake7, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake8, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake9, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake10, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake11, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake12, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake13, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake14, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake15, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake16, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake17, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake18, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake19, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake20, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake21, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake21, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake22, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake23, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake24, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake25, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake26, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake27, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake28, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake29, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake30, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake31, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake32, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake33, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake34, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake35, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake36, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake37, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake38, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake39, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake40, category: "Desserts" },
+  { name: "Tiramisu", price: "$7.79", img: cake41, category: "Desserts" },
+
+
 ];
 
-const categories = ["All", "Hot Coffee", "Smoothies", "Gelato", "Desserts"];
+const categories = ["All", "Hot Coffee", "Cold Drinks", "Gelato", "Desserts"];
 
 export default function Menu() {
   const [selectedItem, setSelectedItem] = useState(null);
