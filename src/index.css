@@ -6,3 +6,14 @@ body {
   @apply bg-primary text-light;
   background-image: radial-gradient(circle at 20% 20%, rgba(124,179,66,0.1), transparent 40%);
 }
+html {
+  scroll-behavior: smooth;
+  background-color: #000;
+}
+
+body {
+  /* This creates that high-end deep black look */
+  background: radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000 100%);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
