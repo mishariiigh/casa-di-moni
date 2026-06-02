@@ -1,27 +1,22 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-// FIXED PATH (go up 2 levels)
+// Fixed Asset Paths
 import logo from "../../assets/logo.png";
 
-// FIXED ALL IMAGE PATHS
-import img1 from "../../assets/menu/cake1.png";
-import img2 from "../../assets/menu/cake2.png";
-import img3 from "../../assets/menu/cake3.png";
-import img4 from "../../assets/menu/cake4.png";
-import img5 from "../../assets/menu/cake5.png";
-import img6 from "../../assets/menu/cake6.png";
-import img7 from "../../assets/menu/cake7.png";
-import img8 from "../../assets/menu/cake8.png";
-import img9 from "../../assets/menu/cake9.png";
-import img10 from "../../assets/menu/cake10.png";
+// Import your Gelato items
+import RegularCone from "../../assets/menu/Regular Cone (Selection).png";
+import SugarCone from "../../assets/menu/Sugar Cone.png";
+import ChocolateWaffleCone from "../../assets/menu/Chocolate Waffle Cone.png";
+import SmallCup from "../../assets/menu/Small Cup.png";
+import MediumCup from "../../assets/menu/Medium Cup.png";
 
 const bestSellers = [
-  { name: "Espresso", img: img1, price: "$4" },
-  { name: "Cappuccino", img: img2, price: "$5" },
-  { name: "Latte", img: img3, price: "$6" },
-  { name: "Vanilla Gelato", img: img4, price: "$7" },
-  { name: "Chocolate Gelato", img: img5, price: "$7" },
+  { name: "Regular Cone", img: RegularCone, price: "Market Price" },
+  { name: "Sugar Cone", img: SugarCone, price: "Market Price" },
+  { name: "Chocolate Waffle Cone", img: ChocolateWaffleCone, price: "Market Price" },
+  { name: "Small Cup", img: SmallCup, price: "Market Price" },
+  { name: "Medium Cup", img: MediumCup, price: "Market Price" },
 ];
 
 export default function HeroBlock() {
@@ -63,12 +58,12 @@ export default function HeroBlock() {
           Artisanal Excellence
         </p>
 
-        {/* REINVENTED BEST SELLERS GRID */}
+        {/* SIGNATURE COLLECTION GRID - FULL FRAME LAYOUT */}
         <div className="mt-20 w-full">
           <div className="flex flex-col items-center mb-12">
             <span className="h-px w-12 bg-amber-500/50 mb-4"></span>
             <h3 className="text-[10px] tracking-[0.5em] text-gray-300 uppercase font-medium">
-              The Signature Collection
+              Signature Gelato Collection
             </h3>
           </div>
 
@@ -80,32 +75,33 @@ export default function HeroBlock() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -10 }}
-                className="group relative aspect-[3/4] bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl overflow-hidden backdrop-blur-sm flex flex-col items-center justify-end p-6"
+                whileHover={{ y: -5 }}
+                className="group relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/[0.08] bg-neutral-900 flex flex-col items-center transition-all duration-500 hover:border-amber-500/30"
               >
-                {/* Product Image with Float Animation */}
-                <motion.div 
-                  className="absolute inset-0 flex items-center justify-center p-8 mb-12"
-                  animate={{ y: [0, -5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <img
+                {/* FULL FRAME IMAGE */}
+                <div className="absolute inset-0">
+                  <motion.img
                     src={item.img}
                     alt={item.name}
-                    className="max-h-full w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-500"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    animate={{ scale: [1, 1.03, 1] }}
+                    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
                   />
-                </motion.div>
-
-                {/* Subtle Info Overlay */}
-                <div className="relative z-10 w-full pt-4">
-                  <p className="text-[10px] uppercase tracking-widest text-white font-semibold">
-                    {item.name}
-                  </p>
-                  <p className="text-[9px] text-amber-500/70 mt-1 tracking-widest">{item.price}</p>
+                  {/* Subtle Dark Gradient Overlay for Text Readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                 </div>
 
-                {/* Hover Glow */}
-                <div className="absolute inset-0 bg-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* TEXT AREA (Editorial positioning at bottom) */}
+                <div className="relative z-10 w-full text-center mt-auto p-6 pb-8">
+                  <h4 className="text-[10px] uppercase tracking-[0.2em] text-white font-medium mb-1">
+                    {item.name}
+                  </h4>
+                  <div className="flex items-center justify-center gap-2">
+                    <p className="text-[8px] uppercase tracking-[0.2em] text-amber-500 font-semibold">
+                      {item.price}
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>

@@ -1,301 +1,149 @@
 import { useState } from "react";
 
-// Asset Imports cakes
-import cake1 from "../assets/menu/cake1.png";
-import cake2 from "../assets/menu/cake2.png";
-import cake3 from "../assets/menu/cake3.png";
-import cake4 from "../assets/menu/cake4.png";
-import cake5 from "../assets/menu/cake5.png";
-import cake6 from "../assets/menu/cake6.png";
-import cake7 from "../assets/menu/cake7.png";
-import cake8 from "../assets/menu/cake8.png";
-import cake9 from "../assets/menu/cake9.png";
-import cake10 from "../assets/menu/cake10.png";
-import cake11 from "../assets/menu/cake11.png";
-import cake12 from "../assets/menu/cake12.png";
-import cake13 from "../assets/menu/cake13.png";
-import cake14 from "../assets/menu/cake14.png";
-import cake15 from "../assets/menu/cake15.png";
-import cake16 from "../assets/menu/cake16.png";
-import cake17 from "../assets/menu/cake17.png";
-import cake18 from "../assets/menu/cake18.png";
-import cake19 from "../assets/menu/cake19.png";
-import cake20 from "../assets/menu/cake20.png";
-import cake21 from "../assets/menu/cake21.png";
-import cake22 from "../assets/menu/cake22.png";
-import cake23 from "../assets/menu/cake23.png";
-import cake24 from "../assets/menu/cake23.png";
-import cake25 from "../assets/menu/cake24.png";
-import cake26 from "../assets/menu/cake25.png";
-import cake27 from "../assets/menu/cake27.png";
-import cake28 from "../assets/menu/cake28.png";
-import cake29 from "../assets/menu/cake29.png";
-import cake30 from "../assets/menu/cake30.png";
-import cake31 from "../assets/menu/cake31.png";
-import cake32 from "../assets/menu/cake32.png";
-import cake33 from "../assets/menu/cake33.png";
-import cake34 from "../assets/menu/cake34.png";
-import cake35 from "../assets/menu/cake35.png";
-import cake36 from "../assets/menu/cake36.png";
-import cake37 from "../assets/menu/cake37.png";
-import cake38 from "../assets/menu/cake38.png";
-import cake39 from "../assets/menu/cake39.png";
-import cake40 from "../assets/menu/cake40.png";
-import cake41 from "../assets/menu/cake41.png";
-//import cold drinks
-import cold1 from "../assets/menu/cold1.png"; 
-import cold2 from "../assets/menu/cold2.png"; 
-import cold3 from "../assets/menu/cold3.png"; 
-import cold4 from "../assets/menu/cold4.png"; 
-import cold5 from "../assets/menu/cold5.png"; 
-import cold6 from "../assets/menu/cold6.png"; 
-import cold7 from "../assets/menu/cold7.png"; 
-import cold8 from "../assets/menu/cold8.png"; 
-// import hot drinks
-import hot1 from "../assets/menu/hot1.png"; 
-import hot2 from "../assets/menu/hot2.png"; 
-import hot3 from "../assets/menu/hot3.png"; 
-import hot4 from "../assets/menu/hot4.png"; 
-import hot5 from "../assets/menu/hot5.png"; 
-import hot6 from "../assets/menu/hot6.png"; 
-import hot7 from "../assets/menu/hot7.png"; 
-import hot8 from "../assets/menu/hot8.png"; 
-import hot9 from "../assets/menu/hot9.png"; 
-import hot10 from "../assets/menu/hot10.png"; 
-import hot11 from "../assets/menu/hot11.png"; 
-import hot12 from "../assets/menu/hot12.png"; 
-import hot13 from "../assets/menu/hot13.png"; 
-import hot14 from "../assets/menu/hot14.png"; 
-import hot15 from "../assets/menu/hot15.png"; 
-
+// Asset Imports (Ensure these match your file system exactly)
+import Almond from "../assets/menu/Almond Croissant.png";
+import Cappuccino from "../assets/menu/Cappuccino.png";
+import CheeseCroissant from "../assets/menu/Cheese Croissant .png";
+import ChocolateBrownie from "../assets/menu/Chocolate Brownie.png";
+import ChocolateCroissant from "../assets/menu/Chocolate Croissant.png";
+import ChocolateWaffleCone from "../assets/menu/Chocolate Waffle Cone.png";
+import coffee from "../assets/menu/coffee.png";
+import CookiesCreamCake from "../assets/menu/cookies & cream cake .png";
+import Cortado from "../assets/menu/Cortado.png";
+import CrèmeBrûlée from "../assets/menu/Crème Brûlée .png";
+import CroissantPlain from "../assets/menu/Croissant (Plain).png";
+import Espresso from "../assets/menu/Espresso.png";
+import FlatWhite from "../assets/menu/Flat White.png";
+import HotChocolate from "../assets/menu/Hot Chocolate.png";
+import IcedCappuccino from "../assets/menu/Iced Cappuccino.png";
+import IcedDrink from "../assets/menu/Iced Drink.png";
+import IcedLatte from "../assets/menu/Iced Latte.png";
+import IcedTea from "../assets/menu/Iced Tea.png";
+import LargeCup from "../assets/menu/Large Cup.png";
+import Latte from "../assets/menu/Latte.png";
+import Macchiato from "../assets/menu/Macchiato.png";
+import MediumCup from "../assets/menu/Medium Cup.png";
+import MousseInTheCup from "../assets/menu/Mousse in the Cup.png";
+import OrangeHotChocolate from "../assets/menu/Orange Hot Chocolate.png";
+import PistachioChocolateBrownie from "../assets/menu/Pistachio Chocolate Brownie.png";
+import PistachioCookie from "../assets/menu/Pistachio Cookie.png";
+import PistachioCroissant from "../assets/menu/Pistachio Croissant.png";
+import RainbowBurstCake from "../assets/menu/Rainbow Burst Cake.png";
+import RedVelvetCake from "../assets/menu/Red Velvet Cake.png";
+import RegularCone from "../assets/menu/Regular Cone (Selection).png";
+import SkorCheesecake from "../assets/menu/Skor Cheesecake.png";
+import SmallCup from "../assets/menu/Small Cup.png";
+import Smoothies from "../assets/menu/Smoothies.png";
+import StrawberryCheesecake from "../assets/menu/Strawberry Cheesecake.png";
+import SugarCone from "../assets/menu/Sugar Cone.png";
+import TeaSelection from "../assets/menu/Tea Selection.png";
+import TiramisuCake from "../assets/menu/Tiramisu Cake.png";
+import TiramisuInTheCup from "../assets/menu/Tiramisu in the Cup.png";
+import TuxedoCake from "../assets/menu/Tuxedo Cake.png";
 
 const menuItems = [
-  { name: "Cappuccino", price: "$4.49 — $6.19", img: hot1, category: "Hot Coffee" },
-  { name: "Latte", price: "$4.49 — $6.19", img: hot3, category: "Hot Coffee" },
-  { name: "Tea Selection", price: "$3.49", img: hot4, category: "Hot Coffee" },
-  { name: "Caffè", price: "$2.49 — $3.79", img: hot5, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot6, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot7, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot8, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot9, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot10, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot11, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot12, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot13, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot14, category: "Hot Coffee" },
-  { name: "Hot Cocoa", price: "$3.99 — $5.79", img: hot15, category: "Hot Coffee" },
+  // --- GELATO ---
+  { name: "Regular Cone (Selection)", price: "—", img: RegularCone, category: "Gelato", description: "Authentic Italian Gelato: 1 Scoop / 1 Flavour" },
+  { name: "Sugar Cone", price: "—", img: SugarCone, category: "Gelato", description: "Authentic Italian Gelato: 1 Scoop / 1 Flavour" },
+  { name: "Chocolate Waffle Cone", price: "—", img: ChocolateWaffleCone, category: "Gelato", description: "Authentic Italian Gelato: 2 Scoops / 2 Flavours" },
+  { name: "Small Cup", price: "—", img: SmallCup, category: "Gelato", description: "Authentic Italian Gelato: 2 Scoops / 2 Flavours" },
+  { name: "Medium Cup", price: "—", img: MediumCup, category: "Gelato", description: "Authentic Italian Gelato: 2 Scoops / 2 Flavours" },
+  { name: "Large Cup", price: "—", img: LargeCup, category: "Gelato", description: "Authentic Italian Gelato: 3 Scoops / 3 Flavours" },
 
-  ,
+  // --- HOT DRINKS ---
+  { name: "Coffee", price: "—", img: coffee, category: "Hot Drinks", description: "Available in Small, Medium, Large" },
+  { name: "Espresso (Double Shot)", price: "—", img: Espresso, category: "Hot Drinks", description: "Rich and concentrated shot of pure espresso" },
+  { name: "Cortado", price: "—", img: Cortado, category: "Hot Drinks", description: "Equal parts espresso and warm milk" },
+  { name: "Macchiato", price: "—", img: Macchiato, category: "Hot Drinks", description: "Espresso stained with a dollop of milk foam" },
+  { name: "Flat White", price: "—", img: FlatWhite, category: "Hot Drinks", description: "Smooth espresso blended with velvety microfoam" },
+  { name: "Cappuccino", price: "—", img: Cappuccino, category: "Hot Drinks", description: "Available in Small, Medium, Large" },
+  { name: "Latte", price: "—", img: Latte, category: "Hot Drinks", description: "Available in Small, Medium, Large" },
+  { name: "Tea Selection", price: "—", img: TeaSelection, category: "Hot Drinks", description: "A curated premium selection of hot teas" },
+  { name: "Hot Chocolate", price: "—", img: HotChocolate, category: "Hot Drinks", description: "Served with a selection of syrup flavours" },
+  { name: "Orange Hot Chocolate", price: "—", img: OrangeHotChocolate, category: "Hot Drinks", description: "Rich chocolate base with a twist of orange citrus notes" },
 
-  //Cold Drinks
-  { name: "Banana Smoothie", price: "$7.79", img: cold1, category: "Cold Drinks" },
-  { name: "Mango Smoothie", price: "$7.79", img: cold2, category: "Cold Drinks" },
-  { name: "Mango Smoothie", price: "$7.79", img: cold3, category: "Cold Drinks" },
-  { name: "Mango Smoothie", price: "$7.79", img: cold4, category: "Cold Drinks" },
-  { name: "Mango Smoothie", price: "$7.79", img: cold5, category: "Cold Drinks" },
-  { name: "Mango Smoothie", price: "$7.79", img: cold6, category: "Cold Drinks" },
-  { name: "Mango Smoothie", price: "$7.79", img: cold7, category: "Cold Drinks" },
-  { name: "Strawberry Smoothie", price: "$7.79", img: cold8, category: "Cold Drinks" },
+  // --- COLD DRINKS ---
+  { name: "Iced Tea", price: "—", img: IcedTea, category: "Cold Drinks", description: "Alpine Berry + ice, selection from the syrups + soda water + ice" },
+  { name: "Smoothies", price: "—", img: Smoothies, category: "Cold Drinks", description: "Made from 100% natural fruit purée mixed with sugar + ice + cold water" },
+  { name: "Iced Drink", price: "—", img: IcedDrink, category: "Cold Drinks", description: "Selection of syrups + ice + soda water" },
+  { name: "Iced Cappuccino", price: "—", img: IcedCappuccino, category: "Cold Drinks", description: "Chilled, frothy espresso blended with milk over ice" },
+  { name: "Iced Latte", price: "—", img: IcedLatte, category: "Cold Drinks", description: "Chilled espresso with your selection of flavoured syrups" },
 
-  //Gelato
-  { name: "Oreo Gelato", price: "$7.79", img: hot1, category: "Gelato" },
-  { name: "Pistachio Gelato", price: "$7.79", img: hot1, category: "Gelato" },
-  { name: "Lemon Sorbet", price: "$7.79", img: hot2, category: "Gelato" },
+  // --- PASTRIES ---
+  { name: "Croissant (Plain)", price: "—", img: CroissantPlain, category: "Pastries", description: "Buttery, flaky and golden for the perfect classic bite" },
+  { name: "Chocolate Croissant", price: "—", img: ChocolateCroissant, category: "Pastries", description: "Flaky croissant dough filled with rich chocolate" },
+  { name: "Almond Croissant", price: "—", img: Almond, category: "Pastries", description: "Flaky, buttery croissant filled with almond cream and topped with almonds" },
+  { name: "Pistachio Croissant", price: "—", img: PistachioCroissant, category: "Pastries", description: "Flaky croissant filled with creamy pistachio and topped with pistachios" },
+  { name: "Cheese Croissant", price: "—", img: CheeseCroissant, category: "Pastries", description: "Flaky croissant filled with delicious melted cheese" },
+  { name: "Pistachio Cookie", price: "—", img: PistachioCookie, category: "Pastries", description: "Soft, chewy and packed with crunchy pistachios" },
+  { name: "Chocolate Brownie", price: "—", img: ChocolateBrownie, category: "Pastries", description: "Rich, fudgy and intensely chocolatey" },
+  { name: "Pistachio Chocolate Brownie", price: "—", img: PistachioChocolateBrownie, category: "Pastries", description: "Decadent chocolate brownie swirled with creamy pistachio" },
 
-  //cake
-  { name: "Tiramisu", price: "$7.79", img: cake1, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake2, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake3, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake4, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake5, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake6, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake7, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake8, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake9, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake10, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake11, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake12, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake13, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake14, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake15, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake16, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake17, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake18, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake19, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake20, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake21, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake21, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake22, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake23, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake24, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake25, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake26, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake27, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake28, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake29, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake30, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake31, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake32, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake33, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake34, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake35, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake36, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake37, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake38, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake39, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake40, category: "Desserts" },
-  { name: "Tiramisu", price: "$7.79", img: cake41, category: "Desserts" },
-
-
+  // --- CAKES ---
+  { name: "Tiramisu Cake", price: "—", img: TiramisuCake, category: "Cakes", description: "Classic Italian dessert with coffee-soaked layers and mascarpone cream" },
+  { name: "Tuxedo Cake", price: "—", img: TuxedoCake, category: "Cakes", description: "Layers of rich chocolate mousse, coffee-soaked cake and mascarpone cream" },
+  { name: "Red Velvet Cake", price: "—", img: RedVelvetCake, category: "Cakes", description: "Moist red velvet cake with cream cheese frosting" },
+  { name: "Rainbow Burst Cake", price: "—", img: RainbowBurstCake, category: "Cakes", description: "Vibrant layers of vanilla cake with a touch of sweetness in every bite" },
+  { name: "Cookies & Cream Cake", price: "—", img: CookiesCreamCake, category: "Cakes", description: "Delicious cookies & cream layers with a rich creamy finish" },
+  { name: "Strawberry Cheesecake", price: "—", img: StrawberryCheesecake, category: "Cakes", description: "Creamy cheesecake topped with strawberry compote" },
+  { name: "Skor Cheesecake", price: "—", img: SkorCheesecake, category: "Cakes", description: "Creamy cheesecake topped with caramel, Skor bits and chocolate" },
+  { name: "Mousse in the Cup", price: "—", img: MousseInTheCup, category: "Cakes", description: "Light and creamy mousse with a rich chocolate indulgence" },
+  { name: "Tiramisu in the Cup", price: "—", img: TiramisuInTheCup, category: "Cakes", description: "Classic tiramisu with coffee-soaked layers and mascarpone cream" },
+  { name: "Crème Brûlée", price: "—", img: CrèmeBrûlée, category: "Cakes", description: "Silky smooth custard with a perfectly caramelized top" },
 ];
 
-const categories = ["All", "Hot Coffee", "Cold Drinks", "Gelato", "Desserts"];
+const categories = ["All", "Gelato", "Hot Drinks", "Cold Drinks", "Pastries", "Cakes"];
 
 export default function Menu() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [activeFilter, setActiveFilter] = useState("All");
 
-  const filteredCategories = activeFilter === "All" 
-    ? categories.slice(1) 
-    : [activeFilter];
+  const displayOrder = ["Gelato", "Hot Drinks", "Cold Drinks", "Pastries", "Cakes"];
+  const filteredCategories = activeFilter === "All" ? displayOrder : [activeFilter];
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white py-24 px-6 md:px-16 selection:bg-amber-500/30">
-      
-      {/* Editorial Header */}
+    <div className="min-h-screen bg-[#070707] text-white py-24 px-6 md:px-16 selection:bg-amber-500/30 font-sans">
       <header className="max-w-4xl mx-auto text-center mb-24">
-        <span className="uppercase tracking-[0.4em] text-[10px] text-amber-500/80 mb-4 block animate-pulse">
-          Est. 2026
-        </span>
-        <h1 className="text-6xl md:text-8xl font-serif italic mb-6 tracking-tight">
-          The Menu
-        </h1>
-        <p className="text-gray-500 font-light tracking-[0.2em] uppercase text-[11px] max-w-xs mx-auto border-t border-white/10 pt-6">
-          Handcrafted Italian Excellence
-        </p>
+        <span className="uppercase tracking-[0.4em] text-[10px] text-amber-500/80 mb-4 block">Est. 2026</span>
+        <h1 className="text-6xl md:text-8xl font-serif italic mb-6 tracking-tight text-amber-50/95">Casa di Moni</h1>
+        <p className="text-gray-500 font-light tracking-[0.2em] uppercase text-[11px] max-w-xs mx-auto border-t border-white/10 pt-6">Café & Gelato Menu</p>
       </header>
 
-      {/* Minimalist Tab Filter */}
-      <nav className="flex justify-center mb-24">
-        <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
+      <nav className="flex justify-center mb-28">
+        <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">
           {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className="group relative py-1 overflow-hidden"
-            >
-              <span className={`text-[11px] uppercase tracking-[0.3em] transition-colors duration-500 ${
-                activeFilter === cat ? "text-amber-400" : "text-gray-500 group-hover:text-white"
-              }`}>
+            <button key={cat} onClick={() => setActiveFilter(cat)} className="group relative py-2 overflow-hidden">
+              <span className={`text-[11px] uppercase tracking-[0.3em] transition-colors duration-500 font-medium ${activeFilter === cat ? "text-amber-400" : "text-gray-500 group-hover:text-white"}`}>
                 {cat}
               </span>
-              <div className={`absolute bottom-0 left-0 h-[1px] bg-amber-500 transition-all duration-500 ${
-                activeFilter === cat ? "w-full" : "w-0 group-hover:w-full"
-              }`} />
+              <div className={`absolute bottom-0 left-0 h-[2px] bg-amber-500 transition-all duration-500 ${activeFilter === cat ? "w-full" : "w-0 group-hover:w-full"}`} />
             </button>
           ))}
         </div>
       </nav>
 
-      {/* Menu List Sections */}
-      <div className="max-w-6xl mx-auto space-y-32">
+      <div className="max-w-7xl mx-auto space-y-36">
         {filteredCategories.map((category) => (
-          <section key={category} className="animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            <div className="flex items-center gap-8 mb-16">
-              <h2 className="text-2xl font-serif italic text-amber-100/90 whitespace-nowrap">
-                {category}
-              </h2>
-              <div className="h-[1px] w-full bg-gradient-to-r from-amber-500/20 to-transparent" />
+          <section key={category}>
+            <div className="flex items-baseline gap-6 mb-16 border-b border-white/5 pb-4">
+              <h2 className="text-3xl font-serif italic text-amber-100/90">{category}</h2>
             </div>
-
-            <div className="grid md:grid-cols-2 gap-x-20 gap-y-10">
-              {menuItems
-                .filter((item) => item.category === category)
-                .map((item, idx) => (
-                  <div
-                    key={idx}
-                    onClick={() => setSelectedItem(item)}
-                    className="group cursor-pointer flex items-end justify-between py-2 transition-opacity hover:opacity-80"
-                  >
-                    <div className="flex items-center gap-6">
-                      {/* Refined Circular Thumbnails */}
-                      <div className="relative w-14 h-14 rounded-full overflow-hidden border border-white/10 shadow-2xl">
-                        <img 
-                          src={item.img} 
-                          alt={item.name} 
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-light tracking-wide text-white/90 group-hover:text-amber-100 transition-colors">
-                          {item.name}
-                        </h3>
-                        <p className="text-[10px] text-gray-600 uppercase tracking-widest mt-1">
-                          Signature item
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Aesthetic Dotted Leader */}
-                    <div className="flex-1 border-b border-dotted border-white/10 mx-4 mb-2 min-w-[20px]" />
-
-                    <span className="font-serif italic text-amber-200/80 text-lg">
-                      {item.price}
-                    </span>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+              {menuItems.filter((item) => item.category === category).map((item, idx) => (
+                <div key={idx} onClick={() => setSelectedItem(item)} className="group cursor-pointer">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-neutral-900 border border-white/[0.06]">
+                    <img src={item.img} alt={item.name} className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                   </div>
-                ))}
+                  <div className="pt-4 px-1">
+                    <h3 className="text-lg text-white/90 group-hover:text-amber-300 transition-colors">{item.name}</h3>
+                    <p className="text-xs text-gray-500 mt-1 line-clamp-2">{item.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
         ))}
       </div>
-
-      {/* Refined Full-Screen Detail View */}
-      {selectedItem && (
-        <div 
-          className="fixed inset-0 bg-black/95 backdrop-blur-md z-50 flex items-center justify-center p-8 animate-in fade-in duration-500"
-          onClick={() => setSelectedItem(null)}
-        >
-          <div 
-            className="max-w-5xl w-full grid md:grid-cols-2 gap-16 items-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-white/10 shadow-2xl">
-              <img 
-                src={selectedItem.img} 
-                className="w-full h-full object-cover" 
-                alt={selectedItem.name} 
-              />
-              <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.8)]" />
-            </div>
-
-            <div className="space-y-8">
-              <div>
-                <span className="text-amber-500 uppercase tracking-[0.3em] text-[10px]">
-                  {selectedItem.category}
-                </span>
-                <h2 className="text-6xl font-serif italic mt-2">{selectedItem.name}</h2>
-              </div>
-              
-              <div className="h-[1px] w-24 bg-amber-500/50" />
-              
-              <p className="text-gray-400 font-light leading-relaxed text-lg italic">
-                A masterpiece of flavor, prepared fresh daily in our Ottawa kitchen using traditional techniques and premium imported ingredients.
-              </p>
-
-              <p className="text-4xl font-serif text-amber-100">
-                {selectedItem.price}
-              </p>
-
-              <button 
-                onClick={() => setSelectedItem(null)}
-                className="pt-12 text-[10px] uppercase tracking-[0.4em] text-white/40 hover:text-white transition-colors"
-              >
-                Close Gallery — [ ESC ]
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
