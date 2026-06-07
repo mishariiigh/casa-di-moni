@@ -3,9 +3,8 @@ import locationImg from "../assets/location.png";
 
 export default function About() {
   const hours = [
-    { day: "Mon – Thu", time: "9:00 AM – 10:00 PM" },
+    { day: "Sunday – Thu", time: "9:00 AM – 11:00 PM" },
     { day: "Fri – Sat", time: "9:00 AM – 01:00 AM" },
-    { day: "Sunday", time: "9:00 AM – 10:00 PM" },
   ];
 
   return (
