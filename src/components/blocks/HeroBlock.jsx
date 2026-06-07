@@ -13,10 +13,10 @@ import MediumCup from "../../assets/menu/Sugar Cone.png";
 
 const bestSellers = [
   { name: "Regular Cone", img: RegularCone, price: "Market Price" },
-  { name: "Sugar Cone", img: SugarCone, price: "Market Price" },
-  { name: "Chocolate Waffle Cone", img: ChocolateWaffleCone, price: "Market Price" },
-  { name: "Small Cup", img: SmallCup, price: "Market Price" },
-  { name: "Medium Cup", img: MediumCup, price: "Market Price" },
+  { name: "Small", img: SugarCone, price: "Market Price" },
+  { name: "Medium Cup", img: ChocolateWaffleCone, price: "Market Price" },
+  { name: "Large Cup", img: SmallCup, price: "Market Price" },
+  { name: "Sugar Cone", img: MediumCup, price: "Market Price" },
 ];
 
 export default function HeroBlock() {
