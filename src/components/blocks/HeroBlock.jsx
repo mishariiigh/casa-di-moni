@@ -6,10 +6,10 @@ import logo from "../../assets/logo.png";
 
 // Import your Gelato items
 import RegularCone from "../../assets/menu/Regular Cone (Selection).png";
-import SugarCone from "../../assets/menu/Sugar Cone.png";
-import ChocolateWaffleCone from "../../assets/menu/Large Cup.png";
-import SmallCup from "../../assets/menu/Medium Cup.png";
-import MediumCup from "../../assets/menu/Small Cup.png";
+import SugarCone from "../../assets/menu/Small Cup.png";
+import ChocolateWaffleCone from "../../assets/menu/Medium Cup.png";
+import SmallCup from "../../assets/menu/Large Cup.png";
+import MediumCup from "../../assets/menu/Sugar Cone.png";
 
 const bestSellers = [
   { name: "Regular Cone", img: RegularCone, price: "Market Price" },
