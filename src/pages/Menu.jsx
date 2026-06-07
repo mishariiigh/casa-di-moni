@@ -43,13 +43,13 @@ import TuxedoCake from "../assets/menu/Tuxedo Cake.png";
 
 const menuItems = [
   // --- GELATO ---
-  { name: "Regular Cone (Selection)", price: "—", img: RegularCone, category: "Gelato", description: "Authentic Italian Gelato: 1 Scoop / 1 Flavour" },
-  { name: "Sugar Cone", price: "—", img: SugarCone, category: "Gelato", description: "Authentic Italian Gelato: 1 Scoop / 1 Flavour" },
-  { name: "Chocolate Waffle Cone", price: "—", img: ChocolateWaffleCone, category: "Gelato", description: "Authentic Italian Gelato: 2 Scoops / 2 Flavours" },
   { name: "Small Cup", price: "—", img: SmallCup, category: "Gelato", description: "Authentic Italian Gelato: 2 Scoops / 2 Flavours" },
   { name: "Medium Cup", price: "—", img: MediumCup, category: "Gelato", description: "Authentic Italian Gelato: 2 Scoops / 2 Flavours" },
   { name: "Large Cup", price: "—", img: LargeCup, category: "Gelato", description: "Authentic Italian Gelato: 3 Scoops / 3 Flavours" },
-
+  { name: "Regular Cone (Selection)", price: "—", img: RegularCone, category: "Gelato", description: "Authentic Italian Gelato: 1 Scoop / 1 Flavour" },
+  { name: "Sugar Cone", price: "—", img: SugarCone, category: "Gelato", description: "Authentic Italian Gelato: 1 Scoop / 1 Flavour" },
+  { name: "Chocolate Waffle Cone", price: "—", img: ChocolateWaffleCone, category: "Gelato", description: "Authentic Italian Gelato: 2 Scoops / 2 Flavours" },
+ 
   // --- HOT DRINKS ---
   { name: "Coffee", price: "—", img: coffee, category: "Hot Drinks", description: "Available in Small, Medium, Large" },
   { name: "Espresso (Double Shot)", price: "—", img: Espresso, category: "Hot Drinks", description: "Rich and concentrated shot of pure espresso" },
